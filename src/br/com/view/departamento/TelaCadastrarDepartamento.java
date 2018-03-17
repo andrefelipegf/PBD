@@ -11,8 +11,7 @@ import javax.swing.JTextField;
 
 public class TelaCadastrarDepartamento extends JFrame{
 
-	
-
+	private static final long serialVersionUID = 1L;
 	private JTextField  nome;
 	private JButton salvarButton;
 	private JButton cancelarButton;
@@ -62,5 +61,38 @@ public class TelaCadastrarDepartamento extends JFrame{
 		setSize(451,303);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		}
+	}
+
+	public JTextField getNome() {
+		return nome;
+	}
+
+	public void setNome(JTextField nome) {
+		this.nome = nome;
+	}
+
+	public JButton getSalvarButton() {
+		return salvarButton;
+	}
+
+	public void setSalvarButton(JButton salvarButton) {
+		this.salvarButton = salvarButton;
+	}
+
+	public JButton getCancelarButton() {
+		return cancelarButton;
+	}
+
+	public void setCancelarButton(JButton cancelarButton) {
+		this.cancelarButton = cancelarButton;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+	
 }

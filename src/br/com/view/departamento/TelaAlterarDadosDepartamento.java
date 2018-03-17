@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 public class TelaAlterarDadosDepartamento extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JTextField  nome;
 	private JButton alterarButton;
 	private JButton cancelarButton;
@@ -61,4 +62,37 @@ public class TelaAlterarDadosDepartamento extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		}
+
+	public JTextField getNome() {
+		return nome;
+	}
+
+	public void setNome(JTextField nome) {
+		this.nome = nome;
+	}
+
+	public JButton getAlterarButton() {
+		return alterarButton;
+	}
+
+	public void setAlterarButton(JButton alterarButton) {
+		this.alterarButton = alterarButton;
+	}
+
+	public JButton getCancelarButton() {
+		return cancelarButton;
+	}
+
+	public void setCancelarButton(JButton cancelarButton) {
+		this.cancelarButton = cancelarButton;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+	
 }

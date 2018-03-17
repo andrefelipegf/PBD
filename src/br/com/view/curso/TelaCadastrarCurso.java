@@ -10,12 +10,16 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class TelaCadastrarCurso extends JFrame {
-	private JTextField  nome;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton salvarButton;
 	private JButton excluirButton;
 	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textFieldNome;
+	private JTextField textFieldHorario;
+	private JTextField textFieldCoordenador;
 
 	public TelaCadastrarCurso() {
 		super("CADASTRAR DADOS DO CURSO");
@@ -23,7 +27,7 @@ public class TelaCadastrarCurso extends JFrame {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		getContentPane().setLayout(gridBagLayout);
 		
@@ -35,14 +39,14 @@ public class TelaCadastrarCurso extends JFrame {
 		gbc_lblNewLabel.gridy = 0;
 		getContentPane().add(lblNewLabel, gbc_lblNewLabel);
 		
-		nome = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 5);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 2;
-		gbc_textField.gridy = 0;
-		getContentPane().add(nome, gbc_textField);
-		nome.setColumns(15);
+		textFieldNome = new JTextField();
+		GridBagConstraints gbc_textFieldNome = new GridBagConstraints();
+		gbc_textFieldNome.insets = new Insets(0, 0, 5, 5);
+		gbc_textFieldNome.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldNome.gridx = 4;
+		gbc_textFieldNome.gridy = 0;
+		getContentPane().add(textFieldNome, gbc_textFieldNome);
+		textFieldNome.setColumns(10);
 		
 		JLabel lblHorrio = new JLabel("HORARIO");
 		GridBagConstraints gbc_lblHorrio = new GridBagConstraints();
@@ -52,14 +56,14 @@ public class TelaCadastrarCurso extends JFrame {
 		gbc_lblHorrio.gridy = 1;
 		getContentPane().add(lblHorrio, gbc_lblHorrio);
 		
-		textField_2 = new JTextField();
-		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-		gbc_textField_2.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_2.gridx = 2;
-		gbc_textField_2.gridy = 1;
-		getContentPane().add(textField_2, gbc_textField_2);
-		textField_2.setColumns(10);
+		textFieldHorario = new JTextField();
+		GridBagConstraints gbc_textFieldHorario = new GridBagConstraints();
+		gbc_textFieldHorario.insets = new Insets(0, 0, 5, 5);
+		gbc_textFieldHorario.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldHorario.gridx = 4;
+		gbc_textFieldHorario.gridy = 1;
+		getContentPane().add(textFieldHorario, gbc_textFieldHorario);
+		textFieldHorario.setColumns(10);
 		
 		JLabel lblProfessor = new JLabel("COORDENADOR");
 		GridBagConstraints gbc_lblProfessor = new GridBagConstraints();
@@ -69,14 +73,14 @@ public class TelaCadastrarCurso extends JFrame {
 		gbc_lblProfessor.gridy = 2;
 		getContentPane().add(lblProfessor, gbc_lblProfessor);
 		
-		textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 2;
-		gbc_textField_1.gridy = 2;
-		getContentPane().add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		textFieldCoordenador = new JTextField();
+		GridBagConstraints gbc_textFieldCoordenador = new GridBagConstraints();
+		gbc_textFieldCoordenador.insets = new Insets(0, 0, 5, 5);
+		gbc_textFieldCoordenador.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldCoordenador.gridx = 4;
+		gbc_textFieldCoordenador.gridy = 2;
+		getContentPane().add(textFieldCoordenador, gbc_textFieldCoordenador);
+		textFieldCoordenador.setColumns(10);
 		
 		JButton btnSalvar = new JButton("SALVAR");
 		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
@@ -95,4 +99,52 @@ public class TelaCadastrarCurso extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		}
+
+	public JButton getSalvarButton() {
+		return salvarButton;
+	}
+
+	public void setSalvarButton(JButton salvarButton) {
+		this.salvarButton = salvarButton;
+	}
+
+	public JButton getExcluirButton() {
+		return excluirButton;
+	}
+
+	public void setExcluirButton(JButton excluirButton) {
+		this.excluirButton = excluirButton;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+
+	public JTextField getTextFieldNome() {
+		return textFieldNome;
+	}
+
+	public void setTextFieldNome(JTextField textFieldNome) {
+		this.textFieldNome = textFieldNome;
+	}
+
+	public JTextField getTextFieldHorario() {
+		return textFieldHorario;
+	}
+
+	public void setTextFieldHorario(JTextField textFieldHorario) {
+		this.textFieldHorario = textFieldHorario;
+	}
+
+	public JTextField getTextFieldCoordenador() {
+		return textFieldCoordenador;
+	}
+
+	public void setTextFieldCoordenador(JTextField textFieldCoordenador) {
+		this.textFieldCoordenador = textFieldCoordenador;
+	}
 }

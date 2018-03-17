@@ -3,15 +3,14 @@ package br.com.model.facade;
 import java.math.BigDecimal;
 import java.util.List;
 
-import br.com.model.dao.DisciplinaDAO;
-import br.com.model.vo.Disciplina;
 import br.com.model.vo.Falta;
 import br.com.model.vo.Nota;
 import br.com.model.vo.Registro;
+import br.com.model.vo.Turma;
 
 public class Parciais {
 	
-	private Disciplina disciplina; 
+	private Turma turma; 
 	
 	private int matriculados=0;
 	private int reprovadosPorFaltas=0;
@@ -30,10 +29,10 @@ public class Parciais {
 	private float aprovadosGeral=0.0f;
 	private float reprovadosGeral=0.0f;
 	
-	public Parciais(Disciplina disciplina){
-		this.disciplina = disciplina;
+	public Parciais(Turma turma){
+		this.turma = turma;
 	
-		this.matriculados = disciplina.getSituacoes().size();
+		this.matriculados = turma.getSituacoes().size();
 		
 		this.verificarnotas();
 		
@@ -50,7 +49,7 @@ public class Parciais {
 		
 		
 		
-		
+	/**	
 		System.out.println("00000000000000000000000000000000000000000000000000000000000000000000000000000000000");
 		System.out.println("Matriculados: "+getMatriculados());
 		System.out.println("Reprovados por Falta: "+getReprovadosPorFaltas());
@@ -74,19 +73,24 @@ public class Parciais {
 		System.out.println("Reprovados Geral: "+getReprovadosGeral()+"%");
 		System.out.println("____________________________________________________________________________________");
 		System.out.println("00000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+	*/
 	}
 
+	
+	
+	
+	
 	public void verificarnotas() {
-		for(int i = 0; i < this.disciplina.getSituacoes().size();i++){
-			List<Nota> notas = this.disciplina.getSituacoes().get(i).getNotas();
-			List<Falta> faltas = this.disciplina.getSituacoes().get(i).getFaltas();
-			if(!reprovouPorFalta(faltas, this.disciplina.getRegistro())) {
+		for(int i = 0; i < this.turma.getSituacoes().size();i++){
+			List<Nota> notas = this.turma.getSituacoes().get(i).getNotas();
+			List<Falta> faltas = this.turma.getSituacoes().get(i).getFaltas();
+			if(!reprovouPorFalta(faltas, this.turma.getRegistro())) {
 				switch (vaiPraFinal(notas)) {
 				case 2:{
 					try {
 						passouNaFinal(calMediaParcial(notas.get(0).getNota(), notas.get(1).getNota()),notas.get(2).getNota() );
 					} catch (Exception e) {
-						System.out.println("não tem notas");
+						System.out.println("nï¿½o tem notas");
 						this.cursando+=1;
 					}
 					
@@ -127,7 +131,7 @@ public class Parciais {
 		 *Retorna -1 se reprovado V.A.
 		 *Retorna 1 se aprovado por media na segunda V.A.
 		 *Retorna 2 se vai para a terceira V.A.
-		 *Retorna 3 se ele não tiver notas  
+		 *Retorna 3 se ele nï¿½o tiver notas  
 		 */
 		
 		try {
@@ -186,11 +190,6 @@ public class Parciais {
 		}
 	}
 
-	
-
-	
-	
-	
 	/*
 	 * 
 	 * 
@@ -199,8 +198,8 @@ public class Parciais {
 	 * 
 	 * 
 	 * */
-	public Disciplina getDisciplina() {
-		return disciplina;
+	public Turma getDisciplina() {
+		return turma;
 	}
 
 	public int getMatriculados() {
@@ -260,7 +259,7 @@ public class Parciais {
 	}
 	
 	
-	
+	/**
 	public static void main(String[] args) {
 		
 		Disciplina d = DisciplinaDAO.getById(0);
@@ -288,5 +287,5 @@ public class Parciais {
 		System.out.println("Reprovados Geral: "+p.getReprovadosGeral()+"%");
 		System.out.println("____________________________________________________________________________________");
 		System.out.println("00000000000000000000000000000000000000000000000000000000000000000000000000000000000");
-	}
+	}*/
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-import br.com.model.vo.Registro;
 import br.com.model.vo.Telefone;
 
 @SuppressWarnings("static-access")

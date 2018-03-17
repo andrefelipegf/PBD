@@ -4,20 +4,13 @@ import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.FlowLayout;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import java.awt.GridLayout;
 import java.awt.Insets;
 
 public class TelaAlterarDadosCurso extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JTextField  nome;
 	private JButton alterarButton;
 	private JButton excluirButton;
@@ -103,4 +96,55 @@ public class TelaAlterarDadosCurso extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		}
+
+	public JTextField getNome() {
+		return nome;
+	}
+
+	public void setNome(JTextField nome) {
+		this.nome = nome;
+	}
+
+	public JButton getAlterarButton() {
+		return alterarButton;
+	}
+
+	public void setAlterarButton(JButton alterarButton) {
+		this.alterarButton = alterarButton;
+	}
+
+	public JButton getExcluirButton() {
+		return excluirButton;
+	}
+
+	public void setExcluirButton(JButton excluirButton) {
+		this.excluirButton = excluirButton;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+
+	public JTextField getTextField_1() {
+		return textField_1;
+	}
+
+	public void setTextField_1(JTextField textField_1) {
+		this.textField_1 = textField_1;
+	}
+
+	public JTextField getTextField_2() {
+		return textField_2;
+	}
+
+	public void setTextField_2(JTextField textField_2) {
+		this.textField_2 = textField_2;
+	}
+
+
+
 }

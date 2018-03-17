@@ -30,19 +30,9 @@ public class SituacaoAlunoDisciplina {
 	private List<Nota> notas;
 	
 	private String situacao;
-
+	
 	public SituacaoAlunoDisciplina(){}
 	
-
-	
-
-
-
-
-
-
-
-
 	public Aluno getAluno() {
 		return aluno;
 	}
@@ -92,7 +82,5 @@ public class SituacaoAlunoDisciplina {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 }

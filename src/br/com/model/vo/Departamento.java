@@ -22,16 +22,6 @@ public class Departamento {
 
 
 
-
-
-
-
-
-
-
-
-
-
 	public int getId() {
 		return id;
 	}

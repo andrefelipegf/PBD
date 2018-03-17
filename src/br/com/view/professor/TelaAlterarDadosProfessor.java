@@ -1,11 +1,7 @@
 package br.com.view.professor;
 
-import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
-import java.awt.Color;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.LineBorder;
-import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -13,7 +9,8 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class TelaAlterarDadosProfessor extends JFrame {
+public class TelaAlterarDadosProfessor extends JInternalFrame {
+	private static final long serialVersionUID = 1L;
 	private JTextField cpf;
 	private JTextField nome;
 	private JTextField endereco;
@@ -140,7 +137,70 @@ public class TelaAlterarDadosProfessor extends JFrame {
 		JButton excluirButton = new JButton("EXCLUIR");
 		panel.add(excluirButton);
 		setSize(451,303);
-		setLocationRelativeTo(null);
 		setVisible(true);
+	}
+
+	public JTextField getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(JTextField cpf) {
+		this.cpf = cpf;
+	}
+
+	public JTextField getNome() {
+		return nome;
+	}
+
+	public void setNome(JTextField nome) {
+		this.nome = nome;
+	}
+
+	public JTextField getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(JTextField endereco) {
+		this.endereco = endereco;
+	}
+
+	public JTextField getEmail() {
+		return email;
+	}
+
+	public void setEmail(JTextField email) {
+		this.email = email;
+	}
+
+	public JTextField getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(JTextField telefone) {
+		this.telefone = telefone;
+	}
+
+	public JButton getAlterarButton() {
+		return alterarButton;
+	}
+
+	public void setAlterarButton(JButton alterarButton) {
+		this.alterarButton = alterarButton;
+	}
+
+	public JButton getBuscarButton() {
+		return buscarButton;
+	}
+
+	public void setBuscarButton(JButton buscarButton) {
+		this.buscarButton = buscarButton;
+	}
+
+	public JButton getExcluirButton() {
+		return excluirButton;
+	}
+
+	public void setExcluirButton(JButton excluirButton) {
+		this.excluirButton = excluirButton;
 	}
 }

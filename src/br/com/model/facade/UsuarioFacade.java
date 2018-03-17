@@ -7,6 +7,7 @@ import br.com.model.vo.Aluno;
 import br.com.model.vo.Departamento;
 import br.com.model.vo.ObjetoReturn;
 import br.com.model.vo.Professor;
+import br.com.model.vo.Telefone;
 
 public class UsuarioFacade {
 
@@ -38,7 +39,7 @@ public class UsuarioFacade {
 		return objr;
 	}
 		
-	public boolean atualizarAluno(Aluno aluno,String nome,String cpf,String senha,String email,String telefone,String endereco){
+	public boolean atualizarAluno(Aluno aluno,String nome,String cpf,String email,String telefone,String endereco, String senha){
 		try {
 			aluno.setNome(nome);
 			aluno.setCpf(cpf);
@@ -75,6 +76,59 @@ public class UsuarioFacade {
 		return true;
 	}
 
+	public boolean cadastrarProfessor(String nome, String cpf, String email, String endereco, String telefone, String senha , int departamento, boolean coo, boolean vice) {
+		try {
+			
+			Professor p = new Professor();
+			p.setCpf(cpf);
+			p.setEmail(email);
+			p.setEndereco(endereco);
+			p.setNome(nome);
+			p.setSenha(senha);
+			p.setCoordenador(coo);
+			p.setVice_coordenador(vice);
+			
+			Telefone t = new Telefone();
+			t.setTelefone(telefone);
+			p.setTelefone(t);
+			
+			
+			p.setDepartamento(null);
+			
+			ProfessorDAO.persist(p);
+			
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+		
+		
+	}
+	
+	public boolean cadastrarAluno(String nome, String cpf, String email, String endereco, String telefone, String senha) {
+		try {
+			
+			Aluno a = new Aluno();
+			a.setCpf(cpf);
+			a.setEmail(email);
+			a.setEndereco(endereco);
+			a.setNome(nome);
+			a.setSenha(senha);
+			
+			Telefone t = new Telefone();
+			t.setTelefone(telefone);
+			
+			a.setTelefone(t);
+			
+			AlunoDAO.persist(a);
+			
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+		
+		
+	}
 
 
 }

@@ -3,7 +3,6 @@ package br.com.model.vo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class RegistrarObservacoes {
@@ -11,26 +10,12 @@ public class RegistrarObservacoes {
 	@Id
 	@GeneratedValue
 	private int id;
-
-	@OneToOne
-	private Aluno aluno;
 	
 	private String observacao;
 	
-
 	public RegistrarObservacoes() {
 		super();
 	}
-
-
-
-
-
-
-
-
-
-
 
 	public String getObservacao() {
 		return observacao;
@@ -43,12 +28,6 @@ public class RegistrarObservacoes {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public Aluno getAluno() {
-		return aluno;
-	}
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
 	}
 
 }

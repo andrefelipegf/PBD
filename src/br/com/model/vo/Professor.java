@@ -1,9 +1,10 @@
 package br.com.model.vo;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -15,13 +16,13 @@ public class Professor {
 	@GeneratedValue
 	private int id;
 
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int matricula;
 
 	@Column(unique= true)
 	private String cpf;
 
-	@OneToOne
+	@OneToOne(cascade= {CascadeType.ALL})
 	@JoinColumn(name= "telefone_id")
 	private Telefone telefone;
 
@@ -36,43 +37,21 @@ public class Professor {
 	private boolean vice_coordenador;
 	private String nome;
 	
-
-
-
 	public Professor() {
 		super();
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	public void setCoordenador(boolean coordenador) {
 		this.coordenador = coordenador;
 	}
 
-
 	public void setVice_coordenador(boolean vice_coordenador) {
 		this.vice_coordenador = vice_coordenador;
 	}
 
-
 	public String getSenha() {
 		return senha;
 	}
-
 
 	public void setSenha(String senha) {
 		this.senha = senha;
@@ -82,66 +61,53 @@ public class Professor {
 		return coordenador;
 	}
 
-
 	public boolean isVice_coordenador() {
 		return vice_coordenador;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public int getMatricula() {
 		return matricula;
 	}
 
-
 	public void setMatricula(int matricula) {
 		this.matricula = matricula;
 	}
-
 
 	public String getNome() {
 		return nome;
 	}
 
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 
 	public String getCpf() {
 		return cpf;
 	}
 
-
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
 
 	public String getEmail() {
 		return email;
 	}
 
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
 	public String getEndereco() {
 		return endereco;
 	}
-
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
@@ -151,11 +117,9 @@ public class Professor {
 		return telefone;
 	}
 
-
 	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
 	}
-
 
 	public Departamento getDepartamento() {
 		return departamento;
@@ -165,5 +129,4 @@ public class Professor {
 		this.departamento = departamento;
 	}
 
-	
 }

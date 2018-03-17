@@ -65,7 +65,7 @@ public class AlunoDAO {
 		Aluno a = null;
 		try {
 			Connection.getInstance().getEntityManager().getTransaction().begin();
-			Query query = Connection.getInstance().getEntityManager().createQuery("select Aluno from Aluno Aluno where cpf = ?");
+			Query query = Connection.getInstance().getEntityManager().createQuery("select aluno from Aluno aluno where cpf = ?");
             query.setParameter(0, nome);
             a = (Aluno) query.getSingleResult();
 			Connection.getInstance().getEntityManager().getTransaction().commit();

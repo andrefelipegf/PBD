@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-import br.com.model.vo.Aluno;
 import br.com.model.vo.Professor;
 
 @SuppressWarnings("static-access")

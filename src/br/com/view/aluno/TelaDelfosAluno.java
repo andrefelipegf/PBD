@@ -9,54 +9,68 @@ import br.com.model.vo.Aluno;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaDelfosAluno extends JFrame {
+
+	
+	private static final long serialVersionUID = 1L;
+
 	public TelaDelfosAluno(Aluno aluno) {
 		setTitle("Tela Delfos Aluno");
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnFile = new JMenu("Sistema");
-		mnFile.setIcon(new ImageIcon("C:\\Users\\gouveia\\Pictures\\imagens java\\file.png"));
-		menuBar.add(mnFile);
+		JMenu sistema = new JMenu("Sistema");
+		JMenuItem logout = new JMenuItem("Logout");
+		JMenuItem sair = new JMenuItem("Sair");
 		
-		JMenuItem mntmSair = new JMenuItem("Sair");
-		mntmSair.setIcon(new ImageIcon("C:\\Users\\gouveia\\Pictures\\imagens java\\X.png"));
-		mnFile.add(mntmSair);
+		JMenu cisciente = new JMenu("Consulta");
 		
-		JMenu mnDisciente = new JMenu("Consulta");
-		mnDisciente.setIcon(new ImageIcon("C:\\Users\\gouveia\\Pictures\\imagens java\\consulta.png"));
-		menuBar.add(mnDisciente);
+		JMenu detalhadamentoDoDiscente = new JMenu("Detalhadamento do discente");
+		JMenuItem informacao = new JMenuItem("Informações Pessoais");
+		JMenuItem histrico = new JMenuItem("Histórico");
+		JMenuItem gradeDeHorrio = new JMenuItem("Grade de Horário");
+
 		
-		JMenu mnDetalhadamentoDoDiscente = new JMenu("Detalhadamento do discente");
-		mnDisciente.add(mnDetalhadamentoDoDiscente);
 		
-		JMenuItem mntmInformao = new JMenuItem("Informa\u00E7\u00E3o Pessoais");
-		mnDetalhadamentoDoDiscente.add(mntmInformao);
 		
-		JMenuItem mntmHistrico = new JMenuItem("Hist\u00F3rico");
-		mnDetalhadamentoDoDiscente.add(mntmHistrico);
 		
-		JMenuItem mntmGradeDeHorrio = new JMenuItem("Grade de Hor\u00E1rio");
-		mnDetalhadamentoDoDiscente.add(mntmGradeDeHorrio);
+		
+		sistema.add(sair);
+		menuBar.add(cisciente);
+		menuBar.add(sistema);
+		
+		sair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		
+		cisciente.add(detalhadamentoDoDiscente);
+		
+		detalhadamentoDoDiscente.add(informacao);
+		
+		
+		detalhadamentoDoDiscente.add(histrico);
+		
+		
+		detalhadamentoDoDiscente.add(gradeDeHorrio);
 		
 		JMenu mnServios = new JMenu("Servi\u00E7os");
-		mnServios.setIcon(new ImageIcon("C:\\Users\\gouveia\\Pictures\\imagens java\\Servi\u00E7os.png"));
 		menuBar.add(mnServios);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		getContentPane().setLayout(new CardLayout(0, 0));
 		getContentPane().add(desktopPane, "name_194196286904209");
 		
-		JMenuItem mntmAtualizarDados = new JMenuItem("Atualizar Dados ");
+		JMenuItem mntmAtualizarDados = new JMenuItem("Alterar Senha ");
 		mntmAtualizarDados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			TelaAlterarDadosAluno talterar = new TelaAlterarDadosAluno();
+			TelaRedefinicaoSenha talterar = new TelaRedefinicaoSenha(aluno);
 			
 			desktopPane.add(talterar);
 			talterar.show();
@@ -67,9 +81,7 @@ public class TelaDelfosAluno extends JFrame {
 	
 		setSize(500,500);
 		setLocationRelativeTo(null);
-		
-		
-		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);		
 		setVisible(true);
 	}
 	
