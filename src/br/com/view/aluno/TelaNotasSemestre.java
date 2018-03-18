@@ -21,7 +21,7 @@ public class TelaNotasSemestre extends JInternalFrame {
 	
 	public TelaNotasSemestre(Aluno a) {
 		
-		tabelaAlunos = new TabelaPadrao("Alunos");
+		tabelaAlunos = new TabelaPadrao("Notas No Sistema");
 		tabelaAlunos.setColumns(new Object[]{"Semestre","Diciplina","1° Nota","2° Nota","Final","Média","Situação"});
 		getContentPane().add(tabelaAlunos);
 		pegarTurmas(a.getId());

@@ -19,7 +19,7 @@ public class TelaDisciplinasMatriculadas extends JInternalFrame {
 	
 	public TelaDisciplinasMatriculadas(Aluno a) {
 		
-		tabelaAlunos = new TabelaPadrao("Alunos");
+		tabelaAlunos = new TabelaPadrao("Disciplinas Matriculadas");
 		tabelaAlunos.setColumns(new Object[]{"Semestre","Diciplina","Professor","Horário"});
 		getContentPane().add(tabelaAlunos);
 		pegarTurmas(a.getId());

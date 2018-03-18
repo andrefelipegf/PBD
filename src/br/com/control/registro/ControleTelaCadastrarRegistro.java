@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
 import br.com.model.facade.RegistrarFacade;
 import br.com.model.vo.Falta;
 import br.com.model.vo.Turma;
@@ -23,32 +25,39 @@ public class ControleTelaCadastrarRegistro implements ActionListener{
 	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == this.tlr.getBsalvar()) {
-			Date dt = new Date();
-			dt.setMonth(Integer.parseInt(tlr.getTextMes().getText()));
-			dt.setDate(Integer.parseInt(tlr.getTextData().getText()) );
-			int linhas = tlr.getTl().getTable().getRowCount();
-			for (int i = 0; i < linhas; i++) {
-				String f = (String)tlr.getTl().getTable().getValueAt(i, 3);
-				String j = (String)tlr.getTl().getTable().getValueAt(i, 4);
-				Falta fa = new Falta();
-				fa.setData(dt);
+			try {
+				Date dt = new Date();
+				dt.setMonth(Integer.parseInt(tlr.getTextMes().getText()));
+				dt.setDate(Integer.parseInt(tlr.getTextData().getText()) );
+				int linhas = tlr.getTl().getTable().getRowCount();
+				for (int i = 0; i < linhas; i++) {
+					String f = (String)tlr.getTl().getTable().getValueAt(i, 3);
+					String j = (String)tlr.getTl().getTable().getValueAt(i, 4);
+					Falta fa = new Falta();
+					fa.setData(dt);
 
-				if(f.equals("f") || f.equals("F")) {
-					fa.setFalta(true);
-				}else {
-					fa.setFalta(false);
+					if(f.equals("f") || f.equals("F")) {
+						fa.setFalta(true);
+					}else {
+						fa.setFalta(false);
+					}
+
+					if(j.equals("f") || j.equals("F")) {
+						fa.setJustificado(true);
+					}else {
+						fa.setJustificado(false);
+					}
+
+					t.getSituacoes().get(i).getFaltas().add(fa);
 				}
 
-				if(j.equals("f") || j.equals("F")) {
-					fa.setJustificado(true);
-				}else {
-					fa.setJustificado(false);
-				}
-
-				t.getSituacoes().get(i).getFaltas().add(fa);
+				rf.registrarAula(this.t, dt, tlr.getTextAssunto().getText());
+				JOptionPane.showMessageDialog(tlr, "Registrou");
+				tlr.dispose();
+			} catch (Exception e2) {
+				JOptionPane.showMessageDialog(tlr, "Erro no Registro");
 			}
-
-			rf.registrarAula(this.t, dt, tlr.getTextAssunto().getText());
+			
 
 		}
 	}

@@ -29,6 +29,7 @@ public class ControleRedefinirSenhaProfessor implements ActionListener{
 					JOptionPane.showMessageDialog(ta, "CPF alterado com sucesso");
 					ta.getNome().setText("");
 					ta.getCpf().setText("");
+					ta.dispose();
 				}
 			}else {
 				JOptionPane.showMessageDialog(ta, "CPF incorreto");

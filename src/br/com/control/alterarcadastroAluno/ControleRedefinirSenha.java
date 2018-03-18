@@ -27,9 +27,8 @@ public class ControleRedefinirSenha implements ActionListener{
 				}catch (Exception ex) {
 					JOptionPane.showMessageDialog(ta, "Não foi possivel atualizar");
 				} finally {
-					JOptionPane.showMessageDialog(ta, "CPF alterado com sucesso");
-					ta.getNome().setText("");
-					ta.getCpf().setText("");
+					JOptionPane.showMessageDialog(ta, "Senha alterada com sucesso");
+					ta.dispose();
 				}
 			}else {
 				JOptionPane.showMessageDialog(ta, "CPF incorreto");

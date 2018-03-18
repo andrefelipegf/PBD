@@ -19,17 +19,13 @@ public class ControleTelaTurma implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == t.getrAula()) {
-			System.out.println("entrou");
 			new TelaCadastrarRegistro(t.getT());
-			
 		}else if(e.getSource() == t.getrNotas()){
 			new TelaRegistrarNotas(t.getT());
 		}else if(e.getSource() == t.getrObservaes()){
 			new TelaRegistrarObservacao(t.getT());
-			
 		}else if(e.getSource() == t.getParciais()){
 			new TelaParciais(t.getT());
 		}
 	}
-
 }

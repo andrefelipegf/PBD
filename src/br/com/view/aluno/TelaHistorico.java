@@ -20,7 +20,7 @@ public class TelaHistorico extends JInternalFrame {
 	
 	public TelaHistorico(Aluno a) {
 		
-		tabelaAlunos = new TabelaPadrao("Alunos");
+		tabelaAlunos = new TabelaPadrao("Histórico");
 		tabelaAlunos.setColumns(new Object[]{"Diciplina","Semestre","CH","Faltas","Média","Situação"});
 		getContentPane().add(tabelaAlunos);
 		pegarTurmas(a.getId());

@@ -19,11 +19,14 @@ public class ControleCadastrarAluno implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == this.tlc.getSalvarButton()) {
-
-			u.cadastrarAluno(this.tlc.getNome().getText(), this.tlc.getCpf().getText(), this.tlc.getEmail().getText(), this.tlc.getEndereco().getText(),tlc.getTelefone().getText(), tlc.getSenha().getText());
-			JOptionPane.showMessageDialog(tlc, "Cadastrar");
-			tlc.dispose();
-
+			try {
+				u.cadastrarAluno(this.tlc.getNome().getText(), this.tlc.getCpf().getText(), this.tlc.getEmail().getText(), this.tlc.getEndereco().getText(),tlc.getTelefone().getText(), tlc.getSenha().getText());
+				JOptionPane.showMessageDialog(tlc, "Cadastrado");
+				tlc.dispose();
+			} catch (Exception e2) {
+				JOptionPane.showMessageDialog(tlc, "Erro ao Cadastrarr");
+				
+			}
 		}
 
 	}
