@@ -24,12 +24,18 @@ public class TelaListarALunos extends JInternalFrame {
 		tabela.podeSelecionar(true);
 		getContentPane().add(tabela, BorderLayout.CENTER);
 		
-		controle = new ControleTelaListarAluno(this);
+		setControle(new ControleTelaListarAluno(this));
 		
 		
 	}
 	public TabelaPadrao getTabela() {
 		return tabela;
+	}
+	public ControleTelaListarAluno getControle() {
+		return controle;
+	}
+	public void setControle(ControleTelaListarAluno controle) {
+		this.controle = controle;
 	}
 	
 }

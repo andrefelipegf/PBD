@@ -33,6 +33,7 @@ public class Turma {
 	@ManyToOne
 	private Disciplina disciplina;
 
+	private String horario;
 
 	public Turma() {
 	}
@@ -113,4 +114,15 @@ public class Turma {
 	public void setSituacoes(List<SituacaoAlunoDisciplina> situacoes) {
 		this.situacoes = situacoes;
 	}
+
+
+	public String getHorario() {
+		return horario;
+	}
+
+
+	public void setHorario(String horario) {
+		this.horario = horario;
+	}
+	
 }

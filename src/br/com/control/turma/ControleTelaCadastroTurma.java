@@ -78,7 +78,7 @@ public class ControleTelaCadastroTurma implements ActionListener {
 				tu.getSituacoes().add(s);
 				
 			}
-			
+			tu.setHorario(t.getHorario().getText());
 			TurmaDAO.persist(tu);
 
 		} catch (Exception e2) {

@@ -27,6 +27,7 @@ public class TelaCadastroTurma extends JInternalFrame{
 	private JComboBox disciplina;
 	
 	private ControleTelaCadastroTurma controle;
+	private JTextField horario;
 	
 	@SuppressWarnings("rawtypes")
 	public TelaCadastroTurma() {
@@ -51,7 +52,7 @@ public class TelaCadastroTurma extends JInternalFrame{
 
 		tabelaAlunos = new TabelaPadrao("Alunos");
 		tabelaAlunos.setColumns(new Object[]{"ID","Nome","CPF","Código","Matrícula","E-mail","Telefone","Endereço"});
-		tabelaAlunos.setBounds(12, 217, 498, 133);
+		tabelaAlunos.setBounds(12, 160, 771, 321);
 		tabelaAlunos.podeSelecionar(true);
 		getContentPane().add(tabelaAlunos);
 
@@ -64,21 +65,30 @@ public class TelaCadastroTurma extends JInternalFrame{
 		getContentPane().add(lblTermino);
 
 		salvarB = new JButton("Salvar");
-		salvarB.setBounds(28, 343, 117, 25);
+		salvarB.setBounds(303, 544, 117, 47);
 		getContentPane().add(salvarB);
 		
 		disciplina = new JComboBox();
-		disciplina.setBounds(113, 97, 32, 24);
+		disciplina.setBounds(113, 97, 101, 24);
 		getContentPane().add(disciplina);
 		
 		professor = new JComboBox();
-		professor.setBounds(113, 61, 32, 24);
+		professor.setBounds(113, 61, 101, 24);
 		getContentPane().add(professor);
+		
+		JLabel lblHorrio = new JLabel("Horário:");
+		lblHorrio.setBounds(258, 14, 70, 15);
+		getContentPane().add(lblHorrio);
+		
+		horario = new JTextField();
+		horario.setBounds(346, 10, 114, 19);
+		getContentPane().add(horario);
+		horario.setColumns(10);
 		
 		controle = new ControleTelaCadastroTurma(this);
 		salvarB.addActionListener(controle);
 		
-		setSize(500, 500);
+		setSize(805, 700);
 		setVisible(true);
 	}
 
@@ -128,18 +138,11 @@ public class TelaCadastroTurma extends JInternalFrame{
 	}
 
 	@SuppressWarnings("rawtypes")
-	public void setProfessor(JComboBox professor) {
-		this.professor = professor;
-	}
-
-	@SuppressWarnings("rawtypes")
 	public JComboBox getDisciplina() {
 		return disciplina;
 	}
 
-	@SuppressWarnings("rawtypes")
-	public void setDisciplina(JComboBox disciplina) {
-		this.disciplina = disciplina;
+	public JTextField getHorario() {
+		return horario;
 	}
-	
 }

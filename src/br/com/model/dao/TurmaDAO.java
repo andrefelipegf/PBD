@@ -85,6 +85,7 @@ public class TurmaDAO {
 	
 	
 	
+	@SuppressWarnings("unchecked")
 	public static synchronized List<Integer> getByAluno(Aluno p) {
 		try {
 			

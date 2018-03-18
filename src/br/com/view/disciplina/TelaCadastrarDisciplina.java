@@ -9,14 +9,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import br.com.model.dao.DisciplinaDAO;
 import br.com.model.vo.Disciplina;
 
 public class TelaCadastrarDisciplina extends JInternalFrame {
 	private static final long serialVersionUID = 1L;
-	private JButton salvarButton;
-	private JButton btnCancelar;
 	private JTextField textFieldNome;
 	private JTextField textFieldCargaHorario;
 
@@ -24,10 +24,10 @@ public class TelaCadastrarDisciplina extends JInternalFrame {
 		super("CADASTRAR DADOS DA DISCIPLINA");
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		getContentPane().setLayout(gridBagLayout);
 
 		JLabel lblNewLabel = new JLabel("NOME:");
@@ -64,46 +64,27 @@ public class TelaCadastrarDisciplina extends JInternalFrame {
 		gbc_textFieldCargaHorario.gridy = 1;
 		getContentPane().add(textFieldCargaHorario, gbc_textFieldCargaHorario);
 		textFieldCargaHorario.setColumns(10);
-
-		JButton salvarButton_1 = new JButton("SALVAR");
-		GridBagConstraints gbc_salvarButton_1 = new GridBagConstraints();
-		gbc_salvarButton_1.gridwidth = 3;
-		gbc_salvarButton_1.insets = new Insets(0, 0, 5, 5);
-		gbc_salvarButton_1.gridx = 3;
-		gbc_salvarButton_1.gridy = 2;
-		getContentPane().add(salvarButton_1, gbc_salvarButton_1);
+		
+				JButton salvarButton_1 = new JButton("SALVAR");
+				GridBagConstraints gbc_salvarButton_1 = new GridBagConstraints();
+				gbc_salvarButton_1.gridwidth = 3;
+				gbc_salvarButton_1.insets = new Insets(0, 0, 5, 5);
+				gbc_salvarButton_1.gridx = 3;
+				gbc_salvarButton_1.gridy = 3;
+				getContentPane().add(salvarButton_1, gbc_salvarButton_1);
+				
+				salvarButton_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						try {
+							Disciplina d = new Disciplina();
+							d.setCarga_horaririo(Integer.parseInt(textFieldCargaHorario.getText()));
+							d.setNome(textFieldNome.getText());
+							DisciplinaDAO.persist(d);
+						} catch (Exception e2) {
+							JOptionPane.showMessageDialog(null, "Não Foi Possivel cadastrar");
+						}
+					}
+				});
 		setSize(451,303);
-		
-		salvarButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Disciplina d = new Disciplina();
-				d.setCarga_horaririo(Integer.parseInt(textFieldCargaHorario.getText()));
-				d.setNome(textFieldNome.getText());
-			}
-		});
-		
-		
-		
 	}
-
-	public JButton getSalvarButton() {
-		return salvarButton;
-	}
-
-	public JButton getBtnCancelar() {
-		return btnCancelar;
-	}
-
-	public JTextField getTextFieldNome() {
-		return textFieldNome;
-	}
-	
-	public JTextField getTextFieldCargaHorario() {
-		return textFieldCargaHorario;
-	}
-
-
-
-
-
 }

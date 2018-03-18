@@ -44,5 +44,5 @@ public class Disciplina {
 	public void setCarga_horaririo(int carga_horaririo) {
 		this.carga_horaririo = carga_horaririo;
 	}
-	
+
 }

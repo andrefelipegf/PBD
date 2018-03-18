@@ -37,8 +37,9 @@ public class TelaDelfosAluno extends JFrame {
 		JMenu detalhadamentoDoDiscente = new JMenu("Detalhadamento do discente");
 		JMenuItem informacao = new JMenuItem("Informações Pessoais");
 		JMenuItem historico = new JMenuItem("Histórico");
-		JMenuItem gradeDeHorrio = new JMenuItem("Grade de Horário");
-
+		JMenuItem notasSemestre = new JMenuItem("Notas Pos Semestre");
+		JMenuItem disciplinaMatriculada = new JMenuItem("Disciplina Matriculadas");
+		
 		JMenu servicos = new JMenu("Serviços");
 		JMenuItem alterarSenha = new JMenuItem("Alterar Senha ");
 
@@ -49,7 +50,8 @@ public class TelaDelfosAluno extends JFrame {
 
 		detalhadamentoDoDiscente.add(informacao);
 		detalhadamentoDoDiscente.add(historico);
-		detalhadamentoDoDiscente.add(gradeDeHorrio);
+		detalhadamentoDoDiscente.add(notasSemestre);
+		detalhadamentoDoDiscente.add(disciplinaMatriculada);
 		consulta.add(detalhadamentoDoDiscente);
 
 
@@ -90,10 +92,18 @@ public class TelaDelfosAluno extends JFrame {
 				talterar.show();
 			}
 		});
-
-		gradeDeHorrio.addActionListener(new ActionListener() {
+		notasSemestre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				TelaNotasSemestre talterar = new TelaNotasSemestre(aluno);
+				desktopPane.add(talterar);
+				talterar.show();
+			}
+		});
+		disciplinaMatriculada.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TelaDisciplinasMatriculadas talterar = new TelaDisciplinasMatriculadas(aluno);
+				desktopPane.add(talterar);
+				talterar.show();
 			}
 		});
 
