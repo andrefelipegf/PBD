@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import br.com.model.vo.Aluno;
 import br.com.model.vo.Professor;
 import br.com.model.vo.Turma;
 
@@ -80,6 +81,29 @@ public class TurmaDAO {
 		return null;
 		
 	}
+	
+	
+	
+	
+	public static synchronized List<Integer> getByAluno(Aluno p) {
+		try {
+			
+			Connection.getInstance().getEntityManager().getTransaction().begin();
+			Query query = Connection.getInstance().getEntityManager().createQuery("select t.id  from Turma t inner join Turma_SituacaoAlunoDisciplina ts on t.id = ts.Turma_id inner join SituacaoAlunoDisciplina s on ts.situacoes_id = s.id where s.aluno_id = ?");
+            query.setParameter(0, p.getId());
+			Connection.getInstance().getEntityManager().getTransaction().commit();
+			return query.getResultList();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			Connection.getInstance().getEntityManager().getTransaction().rollback();
+		}
+		return null;
+		
+	}
+	
+	
+	
+	
 	
 	@SuppressWarnings( "unchecked")
 	public static synchronized List<Turma> findAll() {

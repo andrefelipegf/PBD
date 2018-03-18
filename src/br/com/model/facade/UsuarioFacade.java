@@ -57,7 +57,7 @@ public class UsuarioFacade {
 		return true;
 	}
 	
-	public boolean atualizarProfessor(Professor professor,String nome,String cpf,String email,String telefone,String endereco,boolean coordenador,boolean vice_coordenador,Departamento departamento){
+	public boolean atualizarProfessor(Professor professor,String nome,String cpf,String email,String telefone,String endereco,String senha,boolean coordenador,boolean vice_coordenador,Departamento departamento){
 		try {
 			professor.setNome(nome);
 			professor.setCpf(cpf);
@@ -67,7 +67,8 @@ public class UsuarioFacade {
 			professor.setEndereco(endereco);
 			professor.setCoordenador(coordenador);
 			professor.setVice_coordenador(vice_coordenador);
-			professor.setDepartamento(departamento);;
+			professor.setDepartamento(departamento);
+			professor.setSenha(senha);
 			ProfessorDAO.merge(professor);
 			
 		} catch (Exception e) {

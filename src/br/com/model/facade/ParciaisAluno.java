@@ -13,7 +13,10 @@ public class ParciaisAluno {
 
 	private float mediaParcial = 0.0f;
 	private float mediaFinal = 0.0f;
+	private float media = 0f;
 
+	private int faltas=0;
+	
 	private boolean reprovouFalta = false;
 	private boolean reprovouGeral = false;
 	private boolean reprovouFinal = false;
@@ -48,7 +51,7 @@ public class ParciaisAluno {
 				faltasValidas +=1;
 			}
 		}
-
+		this.faltas = faltasValidas;
 		if(porcento(numeroAulas, faltasValidas) > 75f) {
 			reprovouFalta = true;
 			this.mediaParcial = calMediaParcial(this.s.getNotas().get(0).getNota(),this.s.getNotas().get(1).getNota());
@@ -171,6 +174,23 @@ public class ParciaisAluno {
 
 	public boolean isFezFinal() {
 		return fezFinal;
+	}
+
+	public float getMedia() {
+		
+		if(isReprovouFalta()||isReprovouGeral()) {
+			media = getMediaParcial();
+		}else if (isFezFinal()) {
+			media = getMediaFinal();
+		}else {
+			media = getMediaParcial();
+		}
+		return media;
+	}
+
+	
+	public int getFaltas() {
+		return faltas;
 	}
 
 

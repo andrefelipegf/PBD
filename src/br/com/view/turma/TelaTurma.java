@@ -134,16 +134,8 @@ public class TelaTurma extends JInternalFrame{
 			ParciaisAluno pa = new ParciaisAluno(al,na);
 			al.setSituacao(pa.getSituacao());
 			
-			float media = 0f;
-			if(pa.isReprovouFalta()||pa.isReprovouGeral()) {
-				media = pa.getMediaParcial();
-			}else if (pa.isFezFinal()) {
-				media = pa.getMediaFinal();
-			}else {
-				media = pa.getMediaParcial();
-			}
 			
-			this.tabelaAlunos.setRow(new Object[]{al.getAluno().getId(),al.getAluno().getNome(),al.getAluno().getCpf(), al.getAluno().getMatricula() ,al.getAluno().getEmail(),faltas,faltasJ, media,al.getSituacao()});
+			this.tabelaAlunos.setRow(new Object[]{al.getAluno().getId(),al.getAluno().getNome(),al.getAluno().getCpf(), al.getAluno().getMatricula() ,al.getAluno().getEmail(),faltas,faltasJ, pa.getMedia(),al.getSituacao()});
 		}
 	}
 	

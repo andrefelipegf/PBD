@@ -4,7 +4,6 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JDesktopPane;
 
 import java.awt.CardLayout;
@@ -13,14 +12,12 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 import br.com.model.dao.TurmaDAO;
-import br.com.model.vo.Falta;
 import br.com.model.vo.Professor;
 import br.com.model.vo.Turma;
 import br.com.view.aluno.TelaCadastrarDadosAlunos;
 import br.com.view.disciplina.TelaCadastrarDisciplina;
 import br.com.view.login.TelaLogin;
 import br.com.view.turma.TelaCadastroTurma;
-import br.com.view.turma.TelaParciais;
 import br.com.view.turma.TelaTurma;
 
 
@@ -48,22 +45,20 @@ public class TelaDelfosProfessor extends JFrame{
 		JMenuItem logout = new JMenuItem("Logout");
 		JMenuItem sair = new JMenuItem("Sair");
 
-//		JMenu mnCursos = new JMenu("Cursos");
-
 		JMenu cadastros = new JMenu("Cadastro");
 		JMenuItem cadastrarProfessor = new JMenuItem("Cadastrar Professor");
 		JMenuItem cadastrarAluno = new JMenuItem("Cadastrar Aluno");
 		JMenuItem cadastratDisciplina = new JMenuItem("Cadastrar Disciplina");
 		JMenuItem cadastrarTurma = new JMenuItem("Cadastrar Turma");
 
-		JMenu mnListaDeAtividades = new JMenu("Lista de Atividades");
+		JMenu listaDeAtividades = new JMenu("Lista de Atividades");
 		JMenuItem mntmDetalhe = new JMenuItem("Detalhe");
 
 		turmas = new JMenu("Turmas");
 		
-
 		JMenuItem resetarAluno = new JMenuItem("Resetar Aluno");
-
+		
+		JMenuItem alterarSenha = new JMenuItem("Alterar Senha ");
 
 		//------------------> Adição ao meno <--------------------------------------------------
 
@@ -78,17 +73,20 @@ public class TelaDelfosProfessor extends JFrame{
 		cadastros.add(cadastrarTurma);
 
 
-		mnListaDeAtividades.add(mntmDetalhe);
+		listaDeAtividades.add(mntmDetalhe);
 
 		
 
 		menuBar.add(file);
-//		menuBar.add(mnCursos);
-		menuBar.add(cadastros);
-		menuBar.add(mnListaDeAtividades);
+		if (professor.isCoordenador()||professor.isVice_coordenador()) {
+			menuBar.add(cadastros);
+		}
+		menuBar.add(listaDeAtividades);
 		menuBar.add(turmas);
-		menuBar.add(resetarAluno);
-
+		if (professor.isCoordenador()||professor.isVice_coordenador()) {
+			menuBar.add(resetarAluno);
+		}
+		menuBar.add(alterarSenha);
 
 		//--------------------------> eventos <--------------------------
 
@@ -134,8 +132,6 @@ public class TelaDelfosProfessor extends JFrame{
 			}
 		});
 
-		
-
 		resetarAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaAlterarDadosAluno tad = new TelaAlterarDadosAluno();
@@ -144,9 +140,17 @@ public class TelaDelfosProfessor extends JFrame{
 			}
 		});
 		
+		alterarSenha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TelaRedefinicaoSenhaProfessor talterar = new TelaRedefinicaoSenhaProfessor(professor);
+				desktopPane.add(talterar);
+				talterar.show();
+			}
+		});
+		
 		pegarTurmas(professor);
 		
-		setSize(800,400);
+		setSize(800,700);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -166,8 +170,6 @@ public class TelaDelfosProfessor extends JFrame{
 					tp.show();
 				}
 			});
-			
-			
 			
 		}
 	}

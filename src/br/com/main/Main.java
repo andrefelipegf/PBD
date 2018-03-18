@@ -54,6 +54,9 @@ public class Main {
 //
 //		System.exit(0);
 		
-		
+//		Professor r = ProfessorDAO.getBycpf("12");
+//		r.setCoordenador(false);
+//		r.setVice_coordenador(false);
+//		ProfessorDAO.merge(r);
 	}
 }
