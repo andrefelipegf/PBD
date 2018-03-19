@@ -20,7 +20,6 @@ import br.com.view.login.TelaLogin;
 import br.com.view.turma.TelaCadastroTurma;
 import br.com.view.turma.TelaTurma;
 
-
 public class TelaDelfosProfessor extends JFrame{
 
 	private static final long serialVersionUID = 1L;
@@ -81,7 +80,7 @@ public class TelaDelfosProfessor extends JFrame{
 		if (professor.isCoordenador()||professor.isVice_coordenador()) {
 			menuBar.add(cadastros);
 		}
-		menuBar.add(listaDeAtividades);
+//		menuBar.add(listaDeAtividades);
 		menuBar.add(turmas);
 		if (professor.isCoordenador()||professor.isVice_coordenador()) {
 			menuBar.add(resetarAluno);
